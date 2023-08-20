@@ -19,7 +19,7 @@ function App() {
 				<p>React + Tailwind</p>
 				<Button handleClick={openModal} text="Open Modal" />
 			</div>
-			{showModal && <Modal closeModal={closeModal} />}
+			{showModal && <Modal headingOne="My HeadingOne" closeModal={closeModal} />}
 		</div>
 	);
 }

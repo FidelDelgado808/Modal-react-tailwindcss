@@ -1,14 +1,14 @@
 import Button from './Button';
+import Form from './Form';
 
 function Modal({ closeModal }) {
-
 
 	function handleClick() {
 		closeModal();
 	}
 
 	function closeModalBgClick(e) {
-		if (e.target.id === "modal-bg") {
+		if (e.target.id === 'modal-bg') {
 			console.log('click modal bg');
 			closeModal();
 		}
@@ -23,25 +23,25 @@ function Modal({ closeModal }) {
 			<div className="bg-white p-4 m-4 rounded-lg md:w-7/12 w-10/12 max-w-screen-md shadow-2xl relative">
 				<a
 					onClick={closeModal}
-					className="absolute right-5 text-xl hover:cursor-pointer">
-					X
+					className="absolute right-5 text-xl hover:cursor-pointer"
+				>
+					<p className="font-bold">X</p>
 				</a>
 
-				<h1 className="text-4xl py-8 font-bold">My Awesome Modal</h1>
-
-				<div className="bg-orange-400 w-5/12 h-1 mx-auto mb-8"></div>
-
-				<h2 className="text-2xl italic pb-6">Made with React + Tailwindcss</h2>
-
+				<h2 className="text-4xl py-8 font-bold capitalize">
+					Get 10% off today!
+				</h2>
+				<div className="bg-blue-500 w-5/12 h-1 mx-auto mb-8"></div>
 				<p className="text-gray-600 px-6 italic">
-					Aliquip aute et velit anim culpa nostrud magna irure cupidatat
-					incididunt amet sit eiusmod. Qui culpa magna duis fugiat velit quis
-					reprehenderit qui quis aliquip pariatur do nostrud. Et ut et duis nisi
-					ad duis velit id reprehenderit voluptate. Et non nulla consectetur
-					ipsum excepteur id ex ut duis do eiusmod. In sit fugiat est est
-					excepteur aliquip.
+					Get an exclusive 10% off today! Sign-up to secure your 10% off.
 				</p>
-				<Button handleClick={handleClick} text="Click Me" />
+				<img
+					src="https://tecdn.b-cdn.net/img/new/slides/041.jpg"
+					class="h-auto max-w-full my-8 rounded-md"
+					alt="..."
+				/>
+				<Form />
+				<Button handleClick={handleClick} text="Submit" />
 			</div>
 		</div>
 	);

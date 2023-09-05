@@ -1,21 +1,12 @@
-import {useForm, SubmitHandler} from 'react-hook-form';
-import Button from './Button';
+import { useForm } from "react-hook-form";
 
 
-function Form() {
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm();
 
 	return (
 		<div className="mb-4">
 			<form
+				onSubmit={handleSubmit(onSubmit)}
 				className="bg-white rounded px-8 pt-6 pb-8 mb-4"
-				onSubmit={handleSubmit((data) => {
-					console.log(data);
-				})}
 			>
 				<input
 					type="text"
@@ -38,5 +29,3 @@ function Form() {
 			</form>
 		</div>
 	);
-}
-export default Form;

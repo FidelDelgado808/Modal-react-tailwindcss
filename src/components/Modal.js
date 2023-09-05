@@ -14,6 +14,7 @@ function Modal({ closeModal }) {
 		}
 	}
 
+
 	return (
 		<div
 			id="modal-bg"
@@ -41,7 +42,7 @@ function Modal({ closeModal }) {
 					alt="..."
 				/>
 				<Form />
-				<Button handleClick={handleClick} text="Submit" />
+				<Button onClick="" text="Submit" />
 			</div>
 		</div>
 	);

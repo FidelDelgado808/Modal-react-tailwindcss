@@ -1,23 +1,18 @@
 import {useForm, SubmitHandler} from 'react-hook-form';
+import Button from './Button';
 
-let rendercount = 0;
 
 function Form() {
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm();
-  
-	rendercount++;
-
-	console.log(watch());
 
 	return (
 		<div className="mb-4">
 			<form
-				className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+				className="bg-white rounded px-8 pt-6 pb-8 mb-4"
 				onSubmit={handleSubmit((data) => {
 					console.log(data);
 				})}
@@ -34,7 +29,7 @@ function Form() {
 
 				<input
 					type="text"
-					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 focus:outline-none focus:shadow-outline"
 					{...register('mail', {
 						required: 'This is required',
 					})}

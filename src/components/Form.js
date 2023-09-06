@@ -1,7 +1,8 @@
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
-
-export default function App() {
+export default function Form() {
+	const navigate = useNavigate();
 	const {
 		register,
 		handleSubmit,
@@ -9,8 +10,10 @@ export default function App() {
 		formState: { errors },
 	} = useForm();
 
-	const onSubmit = (data) => console.log(data);
-
+	const onSubmit = (data) => {
+		console.log(data);
+		navigate('/success');
+	};
 
 	console.log(watch('navn')); // watch input value by passing the name of it
 
@@ -37,8 +40,6 @@ export default function App() {
 				focus:outline-none focus:shadow-outline"
 					type="submit"
 					autoComplete="on"
-					onClick={onSubmit}
-					
 				/>
 			</form>
 		</div>

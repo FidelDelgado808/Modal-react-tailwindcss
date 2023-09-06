@@ -12,10 +12,13 @@ export default function Form() {
 
 	const onSubmit = (data) => {
 		console.log(data);
-		navigate('/success');
+		navigate('/success', {
+			state: {
+				navn: data?.navn,
+				email: data?.email,
+			}
+		});
 	};
-
-	console.log(watch('navn')); // watch input value by passing the name of it
 
 	return (
 		<div className="mb-4">

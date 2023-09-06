@@ -1,31 +1,46 @@
 import { useForm } from "react-hook-form";
 
 
+export default function App() {
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors },
+	} = useForm();
+
+	const onSubmit = (data) => console.log(data);
+
+
+	console.log(watch('navn')); // watch input value by passing the name of it
 
 	return (
 		<div className="mb-4">
-			<form
-				onSubmit={handleSubmit(onSubmit)}
-				className="bg-white rounded px-8 pt-6 pb-8 mb-4"
-			>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<input
-					type="text"
-					class="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-					{...register('navn', {
-						required: 'This is required',
-						minLength: { value: 2, message: 'Min lenght is 2.' },
-					})}
+					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					placeholder="Navn"
+					{...register('navn')}
 				/>
 
 				<input
-					type="text"
-					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 focus:outline-none focus:shadow-outline"
-					{...register('mail', {
-						required: 'This is required',
-					})}
-					placeholder="Mail"
+					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					{...register('email', { required: true })}
+					placeholder="E-mail"
+					type="email"
+				/>
+
+				{errors.email && <span>Du mangler at udfylde et felt. </span>}
+
+				<input
+					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
+				focus:outline-none focus:shadow-outline"
+					type="submit"
+					autoComplete="on"
+					onClick={onSubmit}
+					
 				/>
 			</form>
 		</div>
 	);
+}

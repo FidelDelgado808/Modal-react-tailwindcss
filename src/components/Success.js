@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter } from "react-router-dom";
 import { motion as m } from "framer-motion";
 import Confetti from "react-confetti";
 import { useState, useEffect } from "react";

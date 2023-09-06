@@ -38,11 +38,10 @@ function Modal({ closeModal }) {
 				</p>
 				<img
 					src="https://tecdn.b-cdn.net/img/new/slides/041.jpg"
-					class="h-auto max-w-full my-8 rounded-md"
+					className="h-auto max-w-full my-8 rounded-md"
 					alt="..."
 				/>
 				<Form />
-				<Button onClick="" text="Submit" />
 			</div>
 		</div>
 	);

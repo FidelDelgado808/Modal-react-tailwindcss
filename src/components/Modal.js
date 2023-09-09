@@ -52,16 +52,14 @@ function Modal({ closeModal, imagePosition }) {
 					<p className="font-bold">X</p>
 				</a>
 
-					{/* Mere advanceret Layout: Ternary Operators + Props */}
+				{/* Mere advanceret Layout: Ternary Operators + Props */}
 
 				<div className="flex flex-col">
 					<div
 						className={`${
 							imagePosition === 'right' ? 'self-end' : 'self-center'
 						}`}
-					>
-						
-					</div>{' '}
+					></div>
 				</div>
 				{!showSuccess && (
 					<>

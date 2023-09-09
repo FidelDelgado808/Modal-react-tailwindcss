@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import Success from './Success';
-export default function Form() {
+
+
+export default function Form({handleSubmitData}) {
 	const navigate = useNavigate();
 	const {
 		register,
@@ -13,12 +14,7 @@ export default function Form() {
 
 	const onSubmit = (data) => {
 		console.log(data);
-		navigate('/success', {
-			state: {
-				navn: data?.navn,
-				email: data?.email,
-			},
-		});
+		handleSubmitData(true, {navn: data?.navn, email: data?.email});
 	};
 
 	const [isToggled, setIsToggled] = useState(false);
@@ -39,6 +35,7 @@ export default function Form() {
 
 				<input
 					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					{...register('email', { required: true })}
 					placeholder="E-mail"
 					type="email"
@@ -56,7 +53,6 @@ export default function Form() {
 					autoComplete="on"
 					value={'Submit'}
 				/>
-				{/* {isToggled ? <Success /> : id="signUp" } */}
 			</form>
 		</div>
 	);

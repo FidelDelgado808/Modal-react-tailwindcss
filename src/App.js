@@ -28,9 +28,9 @@ function App() {
 			</div>
 
 			{showModal && (
-				<Modal headingOne="My HeadingOne" closeModal={closeModal} />
+				<Modal imagePosition={"right"} headingOne="My HeadingOne" closeModal={closeModal} />
 			)}
 		</div>
 	);
-			}
-			export default App;
+}
+export default App;

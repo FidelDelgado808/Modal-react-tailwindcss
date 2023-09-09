@@ -2,13 +2,13 @@ import { useState } from 'react';
 import Form from './Form';
 import Success from './Success';
 
-function Modal({ closeModal }) {
+function Modal({ closeModal, imagePosition }) {
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [userData, setUserData] = useState({
 		navn: '',
 		email: '',
 	});
-
+	console.log(imagePosition);
 	function handleClick() {
 		closeModal();
 	}
@@ -52,6 +52,17 @@ function Modal({ closeModal }) {
 					<p className="font-bold">X</p>
 				</a>
 
+					{/* Mere advanceret Layout: Ternary Operators + Props */}
+
+				<div className="flex flex-col">
+					<div
+						className={`${
+							imagePosition === 'right' ? 'self-end' : 'self-center'
+						}`}
+					>
+						
+					</div>{' '}
+				</div>
 				{!showSuccess && (
 					<>
 						<h2 className="text-4xl py-8 font-bold capitalize">

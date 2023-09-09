@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Routes, Route, useNavigate } from 'react-router-dom';
 
 
 export default function Form({handleSubmitData}) {
-	const navigate = useNavigate();
 	const {
 		register,
 		handleSubmit,
@@ -16,6 +14,8 @@ export default function Form({handleSubmitData}) {
 		console.log(data);
 		handleSubmitData(true, {navn: data?.navn, email: data?.email});
 	};
+
+	console.log(watch(['navn', 'email']))
 
 	const [isToggled, setIsToggled] = useState(false);
 
@@ -34,7 +34,6 @@ export default function Form({handleSubmitData}) {
 				/>
 
 				<input
-					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					{...register('email', { required: true })}
 					placeholder="E-mail"

@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import Success from './Success';
-export default function Form() {
-	
-	const navigate = useNavigate();
+
+
+export default function Form({handleSubmitData}) {
 	const {
 		register,
 		handleSubmit,
@@ -14,13 +12,10 @@ export default function Form() {
 
 	const onSubmit = (data) => {
 		console.log(data);
-		navigate('/success', {
-			state: {
-				navn: data?.navn,
-				email: data?.email,
-			},
-		});
+		handleSubmitData(true, {navn: data?.navn, email: data?.email});
 	};
+
+	console.log(watch(['navn', 'email']))
 
 	const [isToggled, setIsToggled] = useState(false);
 
@@ -52,12 +47,11 @@ export default function Form() {
 				<input
 					onClick={() => setIsToggled(!isToggled)}
 					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
-					focus:outline-none focus:shadow-outline"
+				focus:outline-none focus:shadow-outline"
 					type="submit"
 					autoComplete="on"
 					value={'Submit'}
 				/>
-				{/* {isToggled ? <Success /> : id="signUp" } */}
 			</form>
 		</div>
 	);

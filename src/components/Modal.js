@@ -1,8 +1,7 @@
-import Button from './Button';
+import { useState } from 'react';
 import Form from './Form';
 
 function Modal({ closeModal }) {
-
 	function handleClick() {
 		closeModal();
 	}
@@ -14,6 +13,9 @@ function Modal({ closeModal }) {
 		}
 	}
 
+	function ChangeContent() {
+		const [show, setShow] = useState(false);
+	}
 
 	return (
 		<div
@@ -36,11 +38,7 @@ function Modal({ closeModal }) {
 				<p className="text-gray-600 px-6 italic">
 					Get an exclusive 10% off today! Sign-up to secure your 10% off.
 				</p>
-				<img
-					src="https://tecdn.b-cdn.net/img/new/slides/041.jpg"
-					className="h-auto max-w-full my-8 rounded-md"
-					alt="..."
-				/>
+
 				<Form />
 			</div>
 		</div>

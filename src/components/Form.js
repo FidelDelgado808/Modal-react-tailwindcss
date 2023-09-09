@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-
-export default function Form({handleSubmitData}) {
+export default function Form({ handleSubmitData }) {
 	const {
 		register,
 		handleSubmit,
@@ -12,12 +11,24 @@ export default function Form({handleSubmitData}) {
 
 	const onSubmit = (data) => {
 		console.log(data);
-		handleSubmitData(true, {navn: data?.navn, email: data?.email});
+		handleSubmitData(true, { navn: data?.navn, email: data?.email });
+		localStorage.removeItem('newsLetterFormData');
 	};
 
-	console.log(watch(['navn', 'email']))
+	watch(
+		(['navn', 'email'],
+		(formData) => {
+			console.log(formData);
+			localStorage.setItem('newsLetterFormData', JSON.stringify(formData));
+		})
+	);
 
-	const [isToggled, setIsToggled] = useState(false);
+	const getLocalStorageFormData = () => {
+		const savedData = localStorage.getItem('newsLetterFormData');
+		const formDataObject = JSON.parse(savedData);
+		return formDataObject;
+	};
+	const localFormData = getLocalStorageFormData();
 
 	return (
 		<div className="mb-4">
@@ -28,12 +39,14 @@ export default function Form({handleSubmitData}) {
 			/>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<input
+					defaultValue={localFormData?.navn}
 					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					placeholder="Navn"
 					{...register('navn')}
 				/>
 
 				<input
+					defaultValue={localFormData?.email}
 					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					{...register('email', { required: true })}
 					placeholder="E-mail"
@@ -45,7 +58,6 @@ export default function Form({handleSubmitData}) {
 				{/* Button */}
 
 				<input
-					onClick={() => setIsToggled(!isToggled)}
 					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
 				focus:outline-none focus:shadow-outline"
 					type="submit"

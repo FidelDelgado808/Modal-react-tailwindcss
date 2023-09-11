@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Modal from './components/Modal';
 import Button from './components/Button';
-import Form from './components/Form';
+
 
 function App() {
 	const [showModal, setShowModal] = useState(false);
@@ -28,7 +28,7 @@ function App() {
 			</div>
 
 			{showModal && (
-				<Modal imagePosition={"right"} headingOne="My HeadingOne" closeModal={closeModal} />
+				<Modal headingOne="My HeadingOne" closeModal={closeModal} />
 			)}
 		</div>
 	);

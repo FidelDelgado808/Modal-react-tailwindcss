@@ -56,9 +56,7 @@ function Modal({ closeModal, imagePosition }) {
 
 				<div className="flex flex-col">
 					<div
-						className={`${
-							imagePosition === 'right' ? 'self-end' : 'self-center'
-						}`}
+						
 					></div>
 				</div>
 				{!showSuccess && (

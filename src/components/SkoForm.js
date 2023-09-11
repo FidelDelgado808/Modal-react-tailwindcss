@@ -33,11 +33,11 @@ export default function SkoForm({ handleSubmitData }) {
 	return (
 		<div className="mb-4">
 			<img
-				src="https://www.behance.net/gallery/52671757/Advertising-campaign-Nike-shoes"
+				src="https://img01.ztat.net/article/spp-media-p1/9e667bc509204c608a02c579deb608ee/5375b7b009ef4914a5523e61ebd50820.jpg?imwidth=200"
 				className="h-auto max-w-full my-8 rounded-md"
 				alt="..."
 			/>
-			<SkoForm onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<input
 					defaultValue={localFormData?.navn}
 					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -54,9 +54,7 @@ export default function SkoForm({ handleSubmitData }) {
 				/>
 
 				{errors.email && (
-					<span className="flex py-2 px-4">
-						Du mangler at udfylde et felt.
-					</span>
+					<span className="flex py-2 px-4">Du mangler at udfylde et felt.</span>
 				)}
 
 				{/* Button */}
@@ -68,7 +66,7 @@ export default function SkoForm({ handleSubmitData }) {
 					autoComplete="on"
 					value={'Submit'}
 				/>
-			</SkoForm>
+			</form>
 		</div>
 	);
 }

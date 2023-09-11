@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-export default function Form({ handleSubmitData }) {
+export default function SkoForm({ handleSubmitData }) {
 	const {
 		register,
 		handleSubmit,
@@ -33,11 +33,11 @@ export default function Form({ handleSubmitData }) {
 	return (
 		<div className="mb-4">
 			<img
-				src="https://tecdn.b-cdn.net/img/new/slides/041.jpg"
+				src="https://www.behance.net/gallery/52671757/Advertising-campaign-Nike-shoes"
 				className="h-auto max-w-full my-8 rounded-md"
 				alt="..."
 			/>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<SkoForm onSubmit={handleSubmit(onSubmit)}>
 				<input
 					defaultValue={localFormData?.navn}
 					className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -68,7 +68,7 @@ export default function Form({ handleSubmitData }) {
 					autoComplete="on"
 					value={'Submit'}
 				/>
-			</form>
+			</SkoForm>
 		</div>
 	);
 }

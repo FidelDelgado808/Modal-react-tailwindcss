@@ -4,6 +4,7 @@ import SkoForm from './SkoForm';
 import Success from './Success';
 import TravelForm from './TravelForm';
 import Coffee from './Coffee';
+import Flex from './Flex';
 
 function Modal({ closeModal, imagePosition }) {
 	const [showSuccess, setShowSuccess] = useState(false);
@@ -69,7 +70,7 @@ function Modal({ closeModal, imagePosition }) {
 						<p className="text-gray-600 px-6 bold mb-2 text-lg">
 							Get an exclusive 10% off today!
 						</p>
-						<Coffee handleSubmitData={handleSubmitData} />
+						<Flex handleSubmitData={handleSubmitData} />
 					</>
 				)}
 				{showSuccess && userData && <Success userData={userData} />}

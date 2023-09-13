@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Form from './Form';
+import SkoForm from './SkoForm';
 import Success from './Success';
+import TravelForm from './TravelForm';
 
 function Modal({ closeModal, imagePosition }) {
 	const [showSuccess, setShowSuccess] = useState(false);
@@ -68,7 +70,7 @@ function Modal({ closeModal, imagePosition }) {
 						<p className="text-gray-600 px-6 italic">
 							Get an exclusive 10% off today! Sign-up to secure your 10% off.
 						</p>
-						<Form handleSubmitData={handleSubmitData} />
+						<TravelForm handleSubmitData={handleSubmitData} />
 					</>
 				)}
 				{showSuccess && userData && <Success userData={userData} />}

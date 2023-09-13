@@ -33,8 +33,8 @@ export default function SkoForm({ handleSubmitData }) {
 	return (
 		<div className="mb-4">
 			<img
-				src="https://img01.ztat.net/article/spp-media-p1/9e667bc509204c608a02c579deb608ee/5375b7b009ef4914a5523e61ebd50820.jpg?imwidth=200"
-				className="h-auto max-w-full my-8 rounded-md"
+				src="https://tecdn.b-cdn.net/img/new/slides/041.jpg"
+				className="bg-scroll my-8 rounded-md"
 				alt="..."
 			/>
 			<form onSubmit={handleSubmit(onSubmit)}>

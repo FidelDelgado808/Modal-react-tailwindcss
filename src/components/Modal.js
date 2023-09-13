@@ -3,6 +3,7 @@ import Form from './Form';
 import SkoForm from './SkoForm';
 import Success from './Success';
 import TravelForm from './TravelForm';
+import Coffee from './Coffee';
 
 function Modal({ closeModal, imagePosition }) {
 	const [showSuccess, setShowSuccess] = useState(false);
@@ -57,20 +58,18 @@ function Modal({ closeModal, imagePosition }) {
 				{/* Mere advanceret Layout: Ternary Operators + Props */}
 
 				<div className="flex flex-col">
-					<div
-						
-					></div>
+					<div></div>
 				</div>
 				{!showSuccess && (
 					<>
-						<h2 className="text-4xl py-8 font-bold capitalize">
+						<h2 className="text-4xl py-4 font-bold capitalize ">
 							Get 10% off today!
 						</h2>
-						<div className="bg-blue-500 w-5/12 h-1 mx-auto mb-8"></div>
-						<p className="text-gray-600 px-6 italic">
-							Get an exclusive 10% off today! Sign-up to secure your 10% off.
+						<div className="bg-blue-500 w-5/12 h-1 mx-auto"></div>
+						<p className="text-gray-600 px-6 bold mb-2 text-lg">
+							Get an exclusive 10% off today!
 						</p>
-						<TravelForm handleSubmitData={handleSubmitData} />
+						<Coffee handleSubmitData={handleSubmitData} />
 					</>
 				)}
 				{showSuccess && userData && <Success userData={userData} />}

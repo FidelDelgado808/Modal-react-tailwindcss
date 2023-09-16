@@ -31,7 +31,7 @@ export default function Flex({ handleSubmitData }) {
 	const localFormData = getLocalStorageFormData();
 
 	return (
-		<div className="flex space-x-4 flex-row">
+		<div className="md:flex space-x-4 flex-row">
 			<div>
 				<img
 					src="https://s2.qwant.com/thumbr/700x0/f/e/ce190e7d24f10478eb6f9d867034934af36688d3f29314fb58baa27ec3339e/Facebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png?u=https%3A%2F%2Fwww.thewaystowealth.com%2Fwp-content%2Fuploads%2F2017%2F03%2FFacebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png&q=0&b=1&p=0&a=0"
@@ -42,29 +42,27 @@ export default function Flex({ handleSubmitData }) {
 			</div>
 
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<div className='py-2 mb-2'>
-
-				<input
-					defaultValue={localFormData?.navn}
-					className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
-					placeholder="Navn"
-					{...register('navn')}
-					/>
-				<div>
+				<div className="py-2 mb-2">
 					<input
-						defaultValue={localFormData?.email}
+						defaultValue={localFormData?.navn}
 						className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
-						{...register('email', { required: true })}
-						placeholder="E-mail"
-						type="email"
+						placeholder="Navn"
+						{...register('navn')}
+					/>
+					<div>
+						<input
+							defaultValue={localFormData?.email}
+							className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+							{...register('email', { required: true })}
+							placeholder="E-mail"
+							type="email"
 						/>
 
-					{errors.email && (
-						<span className="flex py-2 px-4">
-							Du mangler at udfylde et felt.
-						</span>
-					)}
-
+						{errors.email && (
+							<span className="flex py-2 px-4">
+								Du mangler at udfylde et felt.
+							</span>
+						)}
 					</div>
 					{/* Button */}
 				</div>

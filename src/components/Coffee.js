@@ -33,23 +33,23 @@ export default function Coffee({ handleSubmitData }) {
 
 
   return (
-		<div className="mb-8">
+		<div className="mb-4">
 			<img
 				src="https://media.istockphoto.com/id/960567928/photo/happy-man-drinking-a-cup-of-coffee-at-a-cafe.jpg?s=2048x2048&w=is&k=20&c=bHRrhIWp3Na9GjnNZZk58PbLzJXluXWzlUyNSKdq7tY="
 				className="rounded"
 			/>
-			<div className="mb-8">
+			<div>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<input
 						defaultValue={localFormData?.navn}
-						className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						className="shadow appearance-none border rounded w-full py-2 px-4 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 						placeholder="Navn"
 						{...register('navn')}
 					/>
 
 					<input
 						defaultValue={localFormData?.email}
-						className="shadow appearance-none border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						className="shadow appearance-none border rounded w-full py-2 px-4 my-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 						{...register('email', { required: true })}
 						placeholder="E-mail"
 						type="email"

@@ -79,5 +79,4 @@ export default function Flex({ handleSubmitData }) {
 		</div>
 	);
 }
-// to-do:
-// Husk at gøre denne responsiv
+// Done

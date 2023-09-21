@@ -16,7 +16,7 @@ function Modal({ closeModal }) {
 	});
 
 	const [imagePosition, setImagePosition] = useState({
-		left: 'left-2/4 my-8 rounded-md',
+		left: 'flex-4 rounded-md',
 		right: 'h-auto max-w-full my-9 rounded-md',
 	});
 
@@ -83,12 +83,12 @@ function Modal({ closeModal }) {
 				</a>
 
 				<div className="flex flex-col">
-					<p className="text-4xl py-2 font-bold capitalize ">
+					<p className="flex-1 text-4xl py-2 font-bold capitalize ">
 						Get 10% off today!
 					</p>
-					<div className="bg-blue-500 w-5/12 h-1 mx-auto"></div>
+					<div className="flex-2 bg-blue-500 w-5/12 h-1 mx-auto"></div>
 
-					<p className="text-gray-600 py-2 bold mb-2 text-lg">
+					<p className="flex-3 text-gray-600 py-2 bold mb-2 text-lg">
 						Get an exclusive 10% off today!
 					</p>
 					<div>

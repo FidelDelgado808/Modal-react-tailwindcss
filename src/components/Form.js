@@ -49,7 +49,9 @@ export default function Form({ handleSubmitData }) {
 				/>
 
 				{errors.email && (
-					<span className="flex py-2 px-4">Du mangler at udfylde et felt.</span>
+					<span className="flex py-2 px-4 justify-center font-medium">
+						Du mangler at udfylde et felt.
+					</span>
 				)}
 
 				{/* Button */}

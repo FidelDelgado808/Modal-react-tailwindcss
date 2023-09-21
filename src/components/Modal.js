@@ -1,19 +1,34 @@
 import { useState } from 'react';
 import Confetti from 'react-confetti';
+import Success from './Success';
 import Form from './Form';
 import SkoForm from './SkoForm';
-import Success from './Success';
 import TravelForm from './TravelForm';
 import Coffee from './Coffee';
 import Flex from './Flex';
 
-function Modal({ closeModal, imagePosition }) {
+function Modal({ closeModal }) {
 	const [showSuccess, setShowSuccess] = useState(false);
+
 	const [userData, setUserData] = useState({
 		navn: '',
 		email: '',
 	});
+
+	const [imagePosition, setImagePosition] = useState({
+		left: 'left-2/4 my-8 rounded-md',
+		right: 'h-auto max-w-full my-9 rounded-md',
+	});
+
+	const [srcImage, setsrcImage] = useState({
+		img1: 'https://tecdn.b-cdn.net/img/new/slides/041.jpg',
+		img2: 'https://media.istockphoto.com/id/960567928/photo/happy-man-drinking-a-cup-of-coffee-at-a-cafe.jpg?s=2048x2048&w=is&k=20&c=bHRrhIWp3Na9GjnNZZk58PbLzJXluXWzlUyNSKdq7tY=',
+		img3: 'https://s2.qwant.com/thumbr/700x0/f/e/ce190e7d24f10478eb6f9d867034934af36688d3f29314fb58baa27ec3339e/Facebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png?u=https%3A%2F%2Fwww.thewaystowealth.com%2Fwp-content%2Fuploads%2F2017%2F03%2FFacebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png&q=0&b=1&p=0&a=0',
+
+	});
+
 	console.log(imagePosition);
+
 	function handleClick() {
 		closeModal();
 	}
@@ -68,18 +83,25 @@ function Modal({ closeModal, imagePosition }) {
 				</a>
 
 				<div className="flex flex-col">
-					<div>{/* imagePosition */}</div>
+					<p className="text-4xl py-2 font-bold capitalize ">
+						Get 10% off today!
+					</p>
+					<div className="bg-blue-500 w-5/12 h-1 mx-auto"></div>
+
+					<p className="text-gray-600 py-2 bold mb-2 text-lg">
+						Get an exclusive 10% off today!
+					</p>
+					<div>
+						<img
+							src={`${srcImage.img1}`}
+							className={`${imagePosition.left}`}
+							alt="..."
+						/>
+					</div>
 				</div>
 				{!showSuccess && (
 					<>
-						<h2 className="text-4xl py-4 font-bold capitalize ">
-							Get 10% off today!
-						</h2>
-						<div className="bg-blue-500 w-5/12 h-1 mx-auto"></div>
-						<p className="text-gray-600 px-8 bold mb-2 text-lg">
-							Get an exclusive 10% off today!
-						</p>
-						<Coffee handleSubmitData={handleSubmitData} />
+						<Form handleSubmitData={handleSubmitData} />
 					</>
 				)}
 				{showSuccess && userData && <Success userData={userData} />}
@@ -90,3 +112,15 @@ function Modal({ closeModal, imagePosition }) {
 }
 
 export default Modal;
+
+// To-Do
+// imageposition, hvornår modlen åbnes placeres i app.js
+// ImagePosition er props og Stats - Der skal ikke være noget statisk på siden.
+// Success er udenfor side
+// Alt skal være dynamisk på siden
+
+// Lav auto aktivring så modal kommer frem efter 10 seks eller når man er på vej ud af siden. Indsæt på App.js
+// Jeg kan bruge Coffee og TravelForm som template.
+// Fjern alle H og erstat med P
+// Sørg for at være konsistent med padding og margin rundt om siden.
+// Giv lidt mere spacing ved "Get an exclusive 10% off today!"

@@ -32,11 +32,6 @@ export default function Form({ handleSubmitData }) {
 
 	return (
 		<div className="mb-4">
-			<img
-				src="https://tecdn.b-cdn.net/img/new/slides/041.jpg"
-				className="h-auto max-w-full my-8 rounded-md"
-				alt="..."
-			/>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<input
 					defaultValue={localFormData?.navn}
@@ -54,9 +49,7 @@ export default function Form({ handleSubmitData }) {
 				/>
 
 				{errors.email && (
-					<span className="flex py-2 px-4">
-						Du mangler at udfylde et felt.
-					</span>
+					<span className="flex py-2 px-4">Du mangler at udfylde et felt.</span>
 				)}
 
 				{/* Button */}

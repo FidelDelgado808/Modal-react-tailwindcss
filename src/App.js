@@ -17,7 +17,7 @@ function App() {
 	return (
 		<div className="App w-screen h-screen bg-zinc-300 flex flex-col justify-center items-center">
 			<div className="container w-9/12 bg-white px-4 py-10 m-5 rounded-lg">
-				<h1 className="text-3xl my-4 capitalize md:uppercase">Get 10% off</h1>
+				<p className="text-3xl my-4 capitalize md:uppercase">Get 10% off</p>
 
 				<p className="text-gray-600 px-6 mb-4">
 					Save now with Nike promo codes and coupons. Get 10% off for students,

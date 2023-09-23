@@ -17,12 +17,12 @@ function App() {
 	return (
 		<div className="App w-screen h-screen bg-zinc-300 flex flex-col justify-center items-center">
 			<div className="container w-9/12 bg-white px-4 py-10 m-5 rounded-lg">
-				<p className="text-3xl my-4 capitalize md:uppercase">Get 10% off</p>
+				<div className="text-3xl my-4 capitalize md:uppercase">Get 10% off</div>
 
-				<p className="text-gray-600 px-6 mb-4">
+				<div className="text-gray-600 px-6 mb-4">
 					Save now with Nike promo codes and coupons. Get 10% off for students,
 					military personnel, first responders, and medical professionals.
-				</p>
+				</div>
 
 				<Button handleClick={openModal} text="Yes, Give Me 10% Off" />
 			</div>

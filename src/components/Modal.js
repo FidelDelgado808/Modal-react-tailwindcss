@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
 import Success from './Success';
 import Form from './Form';
@@ -15,6 +15,18 @@ function Modal({ closeModal }) {
 		email: '',
 	});
 
+	const [pieces, setPieces] = useState(200);
+
+	const stopConfetti = () => {
+		setTimeout(() => {
+			setPieces(0);
+		}, 3000);
+	};
+
+	useEffect(() => {
+		stopConfetti();
+	}, []);
+
 	const [imagePosition, setImagePosition] = useState({
 		left: 'flex-4 rounded-md',
 		right: 'h-auto max-w-full my-9 rounded-md',
@@ -24,7 +36,6 @@ function Modal({ closeModal }) {
 		img1: 'https://tecdn.b-cdn.net/img/new/slides/041.jpg',
 		img2: 'https://media.istockphoto.com/id/960567928/photo/happy-man-drinking-a-cup-of-coffee-at-a-cafe.jpg?s=2048x2048&w=is&k=20&c=bHRrhIWp3Na9GjnNZZk58PbLzJXluXWzlUyNSKdq7tY=',
 		img3: 'https://s2.qwant.com/thumbr/700x0/f/e/ce190e7d24f10478eb6f9d867034934af36688d3f29314fb58baa27ec3339e/Facebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png?u=https%3A%2F%2Fwww.thewaystowealth.com%2Fwp-content%2Fuploads%2F2017%2F03%2FFacebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png&q=0&b=1&p=0&a=0',
-
 	});
 
 	console.log(imagePosition);
@@ -83,14 +94,14 @@ function Modal({ closeModal }) {
 				</a>
 
 				<div className="flex flex-col">
-					<p className="flex-1 text-4xl py-2 font-bold capitalize ">
+					<div className="flex-1 text-4xl py-2 font-bold capitalize ">
 						Get 10% off today!
-					</p>
+					</div>
 					<div className="flex-2 bg-blue-500 w-5/12 h-1 mx-auto"></div>
 
-					<p className="flex-3 text-gray-600 py-2 bold mb-2 text-lg">
+					<div className="flex-3 text-gray-600 py-2 bold mb-2 text-lg">
 						Get an exclusive 10% off today!
-					</p>
+					</div>
 					<div>
 						<img
 							src={`${srcImage.img1}`}
@@ -106,7 +117,11 @@ function Modal({ closeModal }) {
 				)}
 				{showSuccess && userData && <Success userData={userData} />}
 			</div>
+
 			{/* confetti if statement */}
+
+			{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.2}  />}
+
 		</div>
 	);
 }

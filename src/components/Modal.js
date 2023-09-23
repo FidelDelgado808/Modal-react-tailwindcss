@@ -20,7 +20,7 @@ function Modal({ closeModal }) {
 	const stopConfetti = () => {
 		setTimeout(() => {
 			setPieces(0);
-		}, 3000);
+		}, 5000);
 	};
 
 	useEffect(() => {
@@ -110,18 +110,19 @@ function Modal({ closeModal }) {
 						/>
 					</div>
 				</div>
+
 				{!showSuccess && (
 					<>
 						<Form handleSubmitData={handleSubmitData} />
 					</>
 				)}
+
 				{showSuccess && userData && <Success userData={userData} />}
 			</div>
 
 			{/* confetti if statement */}
 
-			{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.2}  />}
-
+			{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.2} />}
 		</div>
 	);
 }
@@ -129,13 +130,12 @@ function Modal({ closeModal }) {
 export default Modal;
 
 // To-Do
+// Få styr på UseEffect
+// Confetti loader når siden loader. Den skal loade onSubmit og ikke ved load.
 // imageposition, hvornår modlen åbnes placeres i app.js
-// ImagePosition er props og Stats - Der skal ikke være noget statisk på siden.
-// Success er udenfor side
+
 // Alt skal være dynamisk på siden
 
 // Lav auto aktivring så modal kommer frem efter 10 seks eller når man er på vej ud af siden. Indsæt på App.js
 // Jeg kan bruge Coffee og TravelForm som template.
-// Fjern alle H og erstat med P
 // Sørg for at være konsistent med padding og margin rundt om siden.
-// Giv lidt mere spacing ved "Get an exclusive 10% off today!"

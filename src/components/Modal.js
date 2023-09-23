@@ -15,17 +15,20 @@ function Modal({ closeModal }) {
 		email: '',
 	});
 
-	const [pieces, setPieces] = useState(200);
+	const [pieces, setPieces] = useState(420);
 
 	const stopConfetti = () => {
-		setTimeout(() => {
-			setPieces(0);
-		}, 5000);
+		
+		// setTimeout(() => {
+		// 	setPieces(0);
+		// }, 500);
 	};
 
 	useEffect(() => {
-		stopConfetti();
+		stopConfetti() && handleClick();
 	}, []);
+
+
 
 	const [imagePosition, setImagePosition] = useState({
 		left: 'flex-4 rounded-md',

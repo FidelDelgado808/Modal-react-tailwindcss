@@ -2,10 +2,9 @@ import { useState} from 'react';
 
 export default function Success({ userData }) {
 
-
 	return (
 		<div className=" h-fit items-center flex justify-center relative">
-			<div className="bg-white w-fit rounded-lg w-1/3 font-latoRegular text-gray-700 p-16">
+			<div className="bg-white rounded-lg  font-latoRegular text-gray-700 p-16">
 				<div className="text-3xl pb-4 font-latoBold">
 					Thanks for the email {userData && userData?.navn && userData?.navn}✨
 				</div>

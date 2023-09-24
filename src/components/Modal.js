@@ -7,7 +7,13 @@ import TravelForm from './TravelForm';
 import Coffee from './Coffee';
 import Flex from './Flex';
 
-function Modal({ closeModal }) {
+function Modal({
+	closeModal,
+	headingOne,
+	headingTwo,
+	
+
+}) {
 	const [showSuccess, setShowSuccess] = useState(false);
 
 	const [userData, setUserData] = useState({
@@ -18,7 +24,6 @@ function Modal({ closeModal }) {
 	const [pieces, setPieces] = useState(420);
 
 	const stopConfetti = () => {
-		
 		// setTimeout(() => {
 		// 	setPieces(0);
 		// }, 500);
@@ -27,8 +32,6 @@ function Modal({ closeModal }) {
 	useEffect(() => {
 		stopConfetti() && handleClick();
 	}, []);
-
-
 
 	const [imagePosition, setImagePosition] = useState({
 		left: 'flex-4 rounded-md',
@@ -98,12 +101,12 @@ function Modal({ closeModal }) {
 
 				<div className="flex flex-col">
 					<div className="flex-1 text-4xl py-2 font-bold capitalize ">
-						Get 10% off today!
+						{headingOne}
 					</div>
 					<div className="flex-2 bg-blue-500 w-5/12 h-1 mx-auto"></div>
 
 					<div className="flex-3 text-gray-600 py-2 bold mb-2 text-lg">
-						Get an exclusive 10% off today!
+						{headingTwo}
 					</div>
 					<div>
 						<img
@@ -134,7 +137,7 @@ export default Modal;
 
 // To-Do
 // Få styr på UseEffect
-// Confetti loader når siden loader. Den skal loade onSubmit og ikke ved load.
+// Confetti loader når siden loader. Den skal loade onSubmit og ikke ved load. {midlertidig løsning fundet}
 // imageposition, hvornår modlen åbnes placeres i app.js
 
 // Alt skal være dynamisk på siden
@@ -142,3 +145,7 @@ export default Modal;
 // Lav auto aktivring så modal kommer frem efter 10 seks eller når man er på vej ud af siden. Indsæt på App.js
 // Jeg kan bruge Coffee og TravelForm som template.
 // Sørg for at være konsistent med padding og margin rundt om siden.
+
+
+
+// Fix showParagraph i App.js

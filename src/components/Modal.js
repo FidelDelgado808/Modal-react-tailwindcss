@@ -44,7 +44,10 @@ function Modal({
 		img3: 'https://s2.qwant.com/thumbr/700x0/f/e/ce190e7d24f10478eb6f9d867034934af36688d3f29314fb58baa27ec3339e/Facebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png?u=https%3A%2F%2Fwww.thewaystowealth.com%2Fwp-content%2Fuploads%2F2017%2F03%2FFacebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png&q=0&b=1&p=0&a=0',
 	});
 
-	console.log(imagePosition);
+	const [flexSelect, setflexSelect] = useState({
+		flexCol: 'flex flex-col',
+		flexRow: 'md:flex space-x-4 flex-row'
+	});
 
 	function handleClick() {
 		closeModal();
@@ -119,7 +122,7 @@ function Modal({
 
 				{!showSuccess && (
 					<>
-						<Form handleSubmitData={handleSubmitData} />
+						<Flex handleSubmitData={handleSubmitData} />
 					</>
 				)}
 

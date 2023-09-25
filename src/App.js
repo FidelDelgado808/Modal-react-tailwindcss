@@ -11,24 +11,16 @@ function App() {
 	}
 	function closeModal() {
 		setShowModal(false);
+	}
 
-	};
-	
-function showParagraph ({
-	paragraphOne,
-	paragraphTwo,
-	paragraphThree
-})
 	return (
 		<div className="App w-screen h-screen bg-zinc-300 flex flex-col justify-center items-center">
 			<div className="container w-9/12 bg-white px-4 py-10 m-5 rounded-lg">
 				<div className="text-3xl my-4 capitalize md:uppercase">
-					{(paragraphOne = "Get 10% off")}
+					Get 60 % off
 				</div>
 
-				<div className="text-gray-600 px-6 mb-4">
-					{(paragraphTwo = 'Save money!')}
-				</div>
+				<div className="text-gray-600 px-6 mb-4">Save money!</div>
 
 				<Button handleClick={openModal} text="Yes, Give Me 10% Off" />
 			</div>

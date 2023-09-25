@@ -1,18 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import Confetti from 'react-confetti';
 import Success from './Success';
-import Form from './Form';
-import SkoForm from './SkoForm';
-import TravelForm from './TravelForm';
-import Coffee from './Coffee';
-import Flex from './Flex';
 
 function Modal({
 	closeModal,
 	headingOne,
 	headingTwo,
-	
-
+	positionStyle,
+	paragraf,
 }) {
 	const [showSuccess, setShowSuccess] = useState(false);
 
@@ -36,6 +32,7 @@ function Modal({
 	const [imagePosition, setImagePosition] = useState({
 		left: 'flex-4 rounded-md',
 		right: 'h-auto max-w-full my-9 rounded-md',
+		onTop: '',
 	});
 
 	const [srcImage, setsrcImage] = useState({
@@ -44,18 +41,12 @@ function Modal({
 		img3: 'https://s2.qwant.com/thumbr/700x0/f/e/ce190e7d24f10478eb6f9d867034934af36688d3f29314fb58baa27ec3339e/Facebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png?u=https%3A%2F%2Fwww.thewaystowealth.com%2Fwp-content%2Fuploads%2F2017%2F03%2FFacebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png&q=0&b=1&p=0&a=0',
 	});
 
-	const [flexSelect, setflexSelect] = useState({
-		flexCol: 'flex flex-col',
-		flexRow: 'md:flex space-x-4 flex-row'
-	});
-
 	function handleClick() {
 		closeModal();
 	}
 
 	function closeModalBgClick(e) {
 		if (e.target.id === 'modal-bg') {
-			console.log('click modal bg');
 			closeModal();
 		}
 	}
@@ -67,16 +58,40 @@ function Modal({
 			console.log('successState ' + successState);
 		}
 
-		console.log('userData');
-		console.log(userData);
-		console.log('successState ' + successState);
-
 		setShowSuccess(successState);
 		setUserData({
 			navn: userData?.navn,
 			email: userData?.email,
 		});
 	};
+
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors },
+	} = useForm();
+
+	const onSubmit = (data) => {
+		console.log(data);
+		handleSubmitData(true, { navn: data?.navn, email: data?.email });
+		localStorage.removeItem('newsLetterFormData');
+	};
+
+	watch(
+		(['navn', 'email'],
+		(formData) => {
+			console.log(formData);
+			localStorage.setItem('newsLetterFormData', JSON.stringify(formData));
+		})
+	);
+
+	const getLocalStorageFormData = () => {
+		const savedData = localStorage.getItem('newsLetterFormData');
+		const formDataObject = JSON.parse(savedData);
+		return formDataObject;
+	};
+	const localFormData = getLocalStorageFormData();
 
 	return (
 		<div
@@ -103,26 +118,81 @@ function Modal({
 				</a>
 
 				<div className="flex flex-col">
+					{/* if-statement flex-col og flex-row 
+				
+			className={`flex ${positionStyle === "left" ? "flex-row" : "flex-col}`}				
+
+			
+				*/}
 					<div className="flex-1 text-4xl py-2 font-bold capitalize ">
 						{headingOne}
 					</div>
-					<div className="flex-2 bg-blue-500 w-5/12 h-1 mx-auto"></div>
+					<div className="flex-2 bg-blue-500 w-5/12 h-1 mx-auto">
+						{headingTwo}
+					</div>
 
 					<div className="flex-3 text-gray-600 py-2 bold mb-2 text-lg">
-						{headingTwo}
+						{/* 	{paragraf} */}
 					</div>
 					<div>
 						<img
 							src={`${srcImage.img1}`}
-							className={`${imagePosition.left}`}
+							className={imagePosition[positionStyle]}
 							alt="..."
 						/>
 					</div>
 				</div>
 
 				{!showSuccess && (
+					// Flex Component
 					<>
-						<Flex handleSubmitData={handleSubmitData} />
+						<div className="md:flex space-x-4 flex-row">
+							<div>
+								<img
+									src="https://s2.qwant.com/thumbr/700x0/f/e/ce190e7d24f10478eb6f9d867034934af36688d3f29314fb58baa27ec3339e/Facebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png?u=https%3A%2F%2Fwww.thewaystowealth.com%2Fwp-content%2Fuploads%2F2017%2F03%2FFacebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png&q=0&b=1&p=0&a=0"
+									className=" w-80
+						rounded-md"
+									alt="..."
+								/>
+							</div>
+
+							<form onSubmit={handleSubmit(onSubmit)}>
+								<div className="py-2 mb-2">
+									<input
+										defaultValue={localFormData?.navn}
+										className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+										placeholder="Navn"
+										{...register('navn')}
+									/>
+
+									<div>
+										<input
+											defaultValue={localFormData?.email}
+											className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+											{...register('email', { required: true })}
+											placeholder="E-mail"
+											type="email"
+										/>
+
+										{errors.email && (
+											<span className="flex py-2 px-4">
+												Du mangler at udfylde et felt.
+											</span>
+										)}
+									</div>
+									{/* Button */}
+								</div>
+								<div className="mb-5">
+									<input
+										className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
+										focus:outline-none focus:shadow-outline"
+										type="submit"
+										autoComplete="on"
+										value={'Submit'}
+									/>
+								</div>
+							</form>
+						</div>
 					</>
 				)}
 
@@ -139,6 +209,7 @@ function Modal({
 export default Modal;
 
 // To-Do
+// læs op på one-way databinding og databinding generelt
 // Få styr på UseEffect
 // Confetti loader når siden loader. Den skal loade onSubmit og ikke ved load. {midlertidig løsning fundet}
 // imageposition, hvornår modlen åbnes placeres i app.js
@@ -149,6 +220,9 @@ export default Modal;
 // Jeg kan bruge Coffee og TravelForm som template.
 // Sørg for at være konsistent med padding og margin rundt om siden.
 
-
-
 // Fix showParagraph i App.js
+
+// Modal design
+// input onTop af billede
+// Billede on left/right
+// billede top, input under billede.

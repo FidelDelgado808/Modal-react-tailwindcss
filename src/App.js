@@ -29,7 +29,7 @@ function App() {
 				<Modal
 					headingOne="Get 60% off"
 					headingTwo="Get an exclusive 60% off today. Sign-up down below 👇🏽"
-					positionStyle={"left"}
+					positionStyle={"right"}
 					paragraf={" With this you can save a lot of money"}
 					closeModal={closeModal}
 

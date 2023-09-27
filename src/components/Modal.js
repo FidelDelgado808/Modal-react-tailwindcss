@@ -30,8 +30,8 @@ function Modal({
 	}, []);
 
 	const [imagePosition, setImagePosition] = useState({
-		left: 'flex-4 rounded-md',
-		right: 'h-auto max-w-full my-9 rounded-md',
+		left: 'flex-row',
+		right: 'flex-col',
 		onTop: '',
 	});
 
@@ -39,6 +39,7 @@ function Modal({
 		img1: 'https://tecdn.b-cdn.net/img/new/slides/041.jpg',
 		img2: 'https://media.istockphoto.com/id/960567928/photo/happy-man-drinking-a-cup-of-coffee-at-a-cafe.jpg?s=2048x2048&w=is&k=20&c=bHRrhIWp3Na9GjnNZZk58PbLzJXluXWzlUyNSKdq7tY=',
 		img3: 'https://s2.qwant.com/thumbr/700x0/f/e/ce190e7d24f10478eb6f9d867034934af36688d3f29314fb58baa27ec3339e/Facebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png?u=https%3A%2F%2Fwww.thewaystowealth.com%2Fwp-content%2Fuploads%2F2017%2F03%2FFacebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png&q=0&b=1&p=0&a=0',
+		img4: '',
 	});
 
 	function handleClick() {
@@ -117,10 +118,11 @@ function Modal({
 					</svg>
 				</a>
 
-				<div className="flex flex-col">
+				<div className={`flex ${positionStyle === "left" ? "flex-row" : "flex-col"}`}>
+				
 					{/* if-statement flex-col og flex-row 
 				
-			className={`flex ${positionStyle === "left" ? "flex-row" : "flex-col}`}				
+			className={`flex ${positionStyle === "left" ? "flex-row" : "flex-col}`}>
 
 			
 				*/}
@@ -135,11 +137,11 @@ function Modal({
 						{/* 	{paragraf} */}
 					</div>
 					<div>
-						<img
-							src={`${srcImage.img1}`}
+						{/* <img
+							src={`${srcImage.img3}`}
 							className={imagePosition[positionStyle]}
 							alt="..."
-						/>
+						/> */}
 					</div>
 				</div>
 
@@ -148,12 +150,7 @@ function Modal({
 					<>
 						<div className="md:flex space-x-4 flex-row">
 							<div>
-								<img
-									src="https://s2.qwant.com/thumbr/700x0/f/e/ce190e7d24f10478eb6f9d867034934af36688d3f29314fb58baa27ec3339e/Facebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png?u=https%3A%2F%2Fwww.thewaystowealth.com%2Fwp-content%2Fuploads%2F2017%2F03%2FFacebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png&q=0&b=1&p=0&a=0"
-									className=" w-80
-						rounded-md"
-									alt="..."
-								/>
+								<img src={`${srcImage.img3}`} className="w-11/12" alt="..." />
 							</div>
 
 							<form onSubmit={handleSubmit(onSubmit)}>
@@ -164,7 +161,7 @@ function Modal({
 										placeholder="Navn"
 										{...register('navn')}
 									/>
-
+									{/* Inputs */}
 									<div>
 										<input
 											defaultValue={localFormData?.email}
@@ -209,6 +206,8 @@ function Modal({
 export default Modal;
 
 // To-Do
+// ændre flex-1 flex-2 så det passer og ser godt ud
+
 // læs op på one-way databinding og databinding generelt
 // Få styr på UseEffect
 // Confetti loader når siden loader. Den skal loade onSubmit og ikke ved load. {midlertidig løsning fundet}

@@ -131,9 +131,11 @@ function Modal({
 						{/* Thin blue Line */}
 					</div>
 
-					<div className="flex-1 text-xl py-2">{headingTwo}</div>
+					<div className="flex-1 text-xl py-1">
+						{headingTwo}
+						</div>
 
-					<div className="flex-2 text-gray-600 py-2 bold mb-2 text-lg">
+					<div className="flex-2 text-gray-600 bold text-lg py-1">
 						{/* 	{paragraf} */}
 					</div>
 					<div>

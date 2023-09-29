@@ -118,14 +118,15 @@ function Modal({
 					</svg>
 				</a>
 
-				<div className={`flex ${positionStyle === "left" ? "flex-row" : "flex-col"}`}>
-				
-					{/* if-statement flex-col og flex-row 
-				
-			className={`flex ${positionStyle === "left" ? "flex-row" : "flex-col}`}>
-
-			
+				<div
+					className={`flex ${
+						positionStyle === 'left' ? 'flex-row' : 'flex-col'
+					}`}
+				>
+					{/*
+					 if-statement flex-col og flex-row 
 				*/}
+
 					<div className="flex-1 text-4xl py-2 font-bold capitalize ">
 						{headingOne}
 					</div>
@@ -148,48 +149,46 @@ function Modal({
 				{!showSuccess && (
 					// Flex Component
 					<>
-						<div className="md:flex space-x-4 flex-row">
-							<div>
-								<img src={`${srcImage.img3}`} className="w-11/12" alt="..." />
-							</div>
-
-							<form onSubmit={handleSubmit(onSubmit)}>
-								<div className="py-2 mb-2">
-									<input
-										defaultValue={localFormData?.navn}
-										className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
-										placeholder="Navn"
-										{...register('navn')}
-									/>
-									{/* Inputs */}
-									<div>
-										<input
-											defaultValue={localFormData?.email}
-											className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
-											{...register('email', { required: true })}
-											placeholder="E-mail"
-											type="email"
-										/>
-
-										{errors.email && (
-											<span className="flex py-2 px-4">
-												Du mangler at udfylde et felt.
-											</span>
-										)}
-									</div>
-									{/* Button */}
-								</div>
-								<div className="mb-5">
-									<input
-										className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
-										focus:outline-none focus:shadow-outline"
-										type="submit"
-										autoComplete="on"
-										value={'Submit'}
-									/>
-								</div>
-							</form>
+						<div>
+							<img src={`${srcImage.img3}`} className="w-11/12" alt="..." />
 						</div>
+
+						<form onSubmit={handleSubmit(onSubmit)}>
+							<div className="py-2 mb-2">
+								<input
+									defaultValue={localFormData?.navn}
+									className="flex-4 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+									placeholder="Navn"
+									{...register('navn')}
+								/>
+								{/* Inputs */}
+								<div>
+									<input
+										defaultValue={localFormData?.email}
+										className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+										{...register('email', { required: true })}
+										placeholder="E-mail"
+										type="email"
+									/>
+
+									{errors.email && (
+										<span className="flex py-2 px-4">
+											Du mangler at udfylde et felt.
+										</span>
+									)}
+								</div>
+								{/* Button */}
+							</div>
+							<div className="mb-5">
+								<input
+									className="  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
+										focus:outline-none focus:shadow-outline"
+									type="submit"
+									autoComplete="on"
+									value={'Submit'}
+								/>
+							</div>
+						</form>
 					</>
 				)}
 

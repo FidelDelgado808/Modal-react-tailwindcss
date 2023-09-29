@@ -97,7 +97,7 @@ function Modal({
 	return (
 		<div
 			id="modal-bg"
-			className="absolute inset-0 w-screen h-screen bg-zinc-700/50 flex flex-col justify-center items-center"
+			className="absolute inset-0 w-screen h-screen bg-zinc-700/50 flex justify-center items-center"
 			onClick={closeModalBgClick}
 		>
 			<div className="bg-white p-4 m-4 rounded-lg md:w-7/12 w-10/12 max-w-screen-md shadow-2xl relative">
@@ -123,18 +123,19 @@ function Modal({
 						positionStyle === 'left' ? 'flex-row' : 'flex-col'
 					}`}
 				>
-					{/*
-					 if-statement flex-col og flex-row 
-				*/}
-
 					<div className="flex-1 text-4xl py-2 font-bold capitalize ">
 						{headingOne}
 					</div>
-					<div className="flex-2 bg-blue-500 w-5/12 h-1 mx-auto">
+
+					<div className="bg-blue-500 w-6/12 h-1 mx-auto rounded-lg">
+						{/* Thin blue Line */}
+					</div>
+
+					<div className="flex-1 text-xl py-2 font-bold capitalize">
 						{headingTwo}
 					</div>
 
-					<div className="flex-3 text-gray-600 py-2 bold mb-2 text-lg">
+					<div className="flex-2 text-gray-600 py-2 bold mb-2 text-lg">
 						{/* 	{paragraf} */}
 					</div>
 					<div>
@@ -152,7 +153,7 @@ function Modal({
 							<div className="py-2 mb-2">
 								<input
 									defaultValue={localFormData?.navn}
-									className="flex-4 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+									className="flex-3 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
 									placeholder="Navn"
 									{...register('navn')}
 								/>
@@ -160,21 +161,26 @@ function Modal({
 								<div>
 									<input
 										defaultValue={localFormData?.email}
-										className=" flex-5 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+										className=" flex-4 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
 										{...register('email', { required: true })}
 										placeholder="E-mail"
 										type="email"
 									/>
 
 									{errors.email && (
-										<span className="flex py-2 px-4 justify-center">
+										<span className="flex-6 py-2 px-4 justify-center">
 											Du mangler at udfylde et felt.
 										</span>
 									)}
 								</div>
 								{/* Button */}
+								<div>
+									<input type="checkbox" />
+									<label > I want to recieve awesome newsletters in my inbox</label>
+								</div>
+
 								<input
-									className=" flex-6  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
+									className=" flex-5  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
 									focus:outline-none focus:shadow-outline"
 									type="submit"
 									autoComplete="on"
@@ -203,7 +209,6 @@ export default Modal;
 // læs op på one-way databinding og databinding generelt
 // Få styr på UseEffect
 // Confetti loader når siden loader. Den skal loade onSubmit og ikke ved load. {midlertidig løsning fundet}
-// imageposition, hvornår modlen åbnes placeres i app.js
 
 // Alt skal være dynamisk på siden
 

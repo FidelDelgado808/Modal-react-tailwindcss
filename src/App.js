@@ -30,7 +30,7 @@ function App() {
 					headingOne="Get 60% off"
 					headingTwo="Get an exclusive discount today" 
 					positionStyle={"right"}
-					paragraf={" With this you can save a lot of money"}
+					paragraf={" What are you waiting for?"}
 					closeModal={closeModal}
 
 				/>

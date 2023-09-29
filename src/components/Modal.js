@@ -30,8 +30,8 @@ function Modal({
 	}, []);
 
 	const [imagePosition, setImagePosition] = useState({
-		left: 'flex-row',
-		right: 'flex-col',
+		left: "flex-row, rounded-lg",
+		right: "flex-col, rounded-lg",
 		onTop: '',
 	});
 
@@ -131,20 +131,15 @@ function Modal({
 						{/* Thin blue Line */}
 					</div>
 
-					<div className="flex-1 text-xl py-1">
-						{headingTwo}
-						</div>
+					<div className="flex-1 text-xl py-1">{headingTwo}</div>
 
-					<div className="flex-2 text-gray-600 bold text-lg py-1">
-						{/* 	{paragraf} */}
-					</div>
 					<div>
 						<img
 							src={`${srcImage.img2}`}
 							className={imagePosition[positionStyle]}
-							alt="..."
 						/>
 					</div>
+					<div className="flex-2 text-lg">{paragraf}</div>
 				</div>
 
 				{!showSuccess && (
@@ -153,7 +148,7 @@ function Modal({
 							<div className="py-2 mb-2">
 								<input
 									defaultValue={localFormData?.navn}
-									className="flex-3 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+									className="flex-3 border rounded w-full py-1 px-3 my-2 text-gray-700 leading-tight"
 									placeholder="Navn"
 									{...register('navn')}
 								/>
@@ -161,7 +156,7 @@ function Modal({
 								<div>
 									<input
 										defaultValue={localFormData?.email}
-										className="flex-4 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+										className="flex-4 border rounded w-full py-1 px-3 my-2 text-gray-700 leading-tight"
 										{...register('email', { required: true })}
 										placeholder="E-mail"
 										type="email"
@@ -177,7 +172,8 @@ function Modal({
 									<input
 										type="checkbox"
 										className="required:border-red-500 mb-2"
-									/> I want awesome newsletters with discounts
+									required/>
+									I want awesome newsletters with occasional discounts
 								</div>
 
 								{/* Button */}

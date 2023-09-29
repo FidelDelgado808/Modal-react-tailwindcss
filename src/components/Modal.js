@@ -172,13 +172,14 @@ function Modal({
 									<input
 										type="checkbox"
 										className="required:border-red-500 mb-2"
-									required/>
-									I want awesome newsletters with occasional discounts
+										required
+									/>
+									&nbsp; I want awesome newsletters with occasional discounts
 								</div>
 
 								{/* Button */}
 								<input
-									className=" flex-5  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
+									className="flex-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
 									focus:outline-none focus:shadow-outline"
 									type="submit"
 									autoComplete="on"

@@ -131,9 +131,7 @@ function Modal({
 						{/* Thin blue Line */}
 					</div>
 
-					<div className="flex-1 text-xl py-2 font-bold capitalize">
-						{headingTwo}
-					</div>
+					<div className="flex-1 text-xl py-2">{headingTwo}</div>
 
 					<div className="flex-2 text-gray-600 py-2 bold mb-2 text-lg">
 						{/* 	{paragraf} */}
@@ -161,7 +159,7 @@ function Modal({
 								<div>
 									<input
 										defaultValue={localFormData?.email}
-										className=" flex-4 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+										className="flex-4 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
 										{...register('email', { required: true })}
 										placeholder="E-mail"
 										type="email"
@@ -173,12 +171,14 @@ function Modal({
 										</span>
 									)}
 								</div>
-								{/* Button */}
 								<div>
-									<input type="checkbox" />
-									<label > I want to recieve awesome newsletters in my inbox</label>
+									<input
+										type="checkbox"
+										className="required:border-red-500 mb-2"
+									/> I want awesome newsletters with discounts
 								</div>
 
+								{/* Button */}
 								<input
 									className=" flex-5  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
 									focus:outline-none focus:shadow-outline"

@@ -138,21 +138,16 @@ function Modal({
 						{/* 	{paragraf} */}
 					</div>
 					<div>
-						{/* <img
-							src={`${srcImage.img3}`}
+						<img
+							src={`${srcImage.img2}`}
 							className={imagePosition[positionStyle]}
 							alt="..."
-						/> */}
+						/>
 					</div>
 				</div>
 
 				{!showSuccess && (
-					// Flex Component
 					<>
-						<div>
-							<img src={`${srcImage.img3}`} className="w-11/12" alt="..." />
-						</div>
-
 						<form onSubmit={handleSubmit(onSubmit)}>
 							<div className="py-2 mb-2">
 								<input
@@ -165,24 +160,22 @@ function Modal({
 								<div>
 									<input
 										defaultValue={localFormData?.email}
-										className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+										className=" flex-5 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
 										{...register('email', { required: true })}
 										placeholder="E-mail"
 										type="email"
 									/>
 
 									{errors.email && (
-										<span className="flex py-2 px-4">
+										<span className="flex py-2 px-4 justify-center">
 											Du mangler at udfylde et felt.
 										</span>
 									)}
 								</div>
 								{/* Button */}
-							</div>
-							<div className="mb-5">
 								<input
-									className="  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
-										focus:outline-none focus:shadow-outline"
+									className=" flex-6  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
+									focus:outline-none focus:shadow-outline"
 									type="submit"
 									autoComplete="on"
 									value={'Submit'}

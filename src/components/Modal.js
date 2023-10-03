@@ -30,9 +30,10 @@ function Modal({
 	}, []);
 
 	const [imagePosition, setImagePosition] = useState({
-		left: "flex-row, rounded-lg",
-		right: "flex-col, rounded-lg",
-		onTop: '',
+		center: 'flex-row, rounded-lg',
+		left: 'flex-col rounded-lg',
+		right: 'flex-col, rounded-lg',
+		onTop: 'flex-wrap',
 	});
 
 	const [srcImage, setsrcImage] = useState({
@@ -120,10 +121,10 @@ function Modal({
 
 				<div
 					className={`flex ${
-						positionStyle === 'left' ? 'flex-row' : 'flex-col'
+						positionStyle === 'center' ? 'flex-row' : 'flex-col'
 					}`}
 				>
-					<div className="flex-1 text-4xl py-2 font-bold capitalize ">
+					<div className="flex-1 text-4xl py-2 font-bold capitalize">
 						{headingOne}
 					</div>
 
@@ -163,7 +164,7 @@ function Modal({
 									/>
 
 									{errors.email && (
-										<span className="flex-6 py-2 px-4 justify-center">
+										<span className="flex-5 py-2 px-4 justify-center">
 											Du mangler at udfylde et felt.
 										</span>
 									)}
@@ -174,12 +175,15 @@ function Modal({
 										className="required:border-red-500 mb-2"
 										required
 									/>
-									&nbsp; I want awesome newsletters with occasional discounts
+									<span className="text-sm">
+										&nbsp; I want awesome to receive newsletters with occasional
+										discounts
+									</span>
 								</div>
 
 								{/* Button */}
 								<input
-									className="flex-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
+									className="flex-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
 									focus:outline-none focus:shadow-outline"
 									type="submit"
 									autoComplete="on"
@@ -192,10 +196,7 @@ function Modal({
 
 				{showSuccess && userData && <Success userData={userData} />}
 			</div>
-
-			{/* confetti if statement */}
-
-			{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.2} />}
+				{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.2} />}
 		</div>
 	);
 }
@@ -203,7 +204,7 @@ function Modal({
 export default Modal;
 
 // To-Do
-// ændre flex-1 flex-2 så det passer og ser godt ud
+// ændre flex-1 flex-2 så det passer og ser godt ud - brug evt if og else sætninger ifelse
 
 // læs op på one-way databinding og databinding generelt
 // Få styr på UseEffect

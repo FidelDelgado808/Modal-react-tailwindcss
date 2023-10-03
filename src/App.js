@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import './App.css';
+import { useState } from 'react';
 import Modal from './components/Modal';
 import Button from './components/Button';
 
@@ -22,7 +22,7 @@ function App() {
 
 				<div className="text-gray-600 px-6 mb-4">Save money!</div>
 
-				<Button handleClick={openModal} text="Yes, Give Me 10% Off" />
+				<Button handleClick={openModal} text="Yes, I want 10% Off" />
 			</div>
 
 			{showModal && (

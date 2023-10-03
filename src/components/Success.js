@@ -2,25 +2,13 @@ import { useState } from 'react';
 import Modal from './Modal';
 
 
+
 export default function Success({ userData, closeModal }) {
-	function LukModal() {
-		
-		const [showModal, setShowModal] = useState(false);
-		
-		function openModal() {
-			setShowModal(true);
-			console.log("Åben min Modal")
-		}
-		function closeModal() {
-			setShowModal(false);
-			console.log("Luk min Modal")
-		}
-	};
-		
+	
 
 	return (
 		<div className="h-fit items-center flex justify-center relative">
-			<a onClick={LukModal(false)} className="absolute top-5 right-5 text-xl">
+			<a onClick={()=>closeModal()} className="absolute top-5 right-5 text-xl">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"

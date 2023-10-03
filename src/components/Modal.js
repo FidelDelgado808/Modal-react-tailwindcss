@@ -200,7 +200,7 @@ function Modal({
 					</>
 				)}
 
-				{showSuccess && userData && <Success userData={userData} />}
+				{showSuccess && userData && <Success userData={userData} closeModal={closeModal} />}
 			</div>
 
 			{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.2} />}
@@ -210,22 +210,15 @@ function Modal({
 
 export default Modal;
 
-
-
-
-
-
 //// To-Do
 // ændre flex-1 flex-2 så det passer og ser godt ud - brug evt if og else sætninger ifelse
 
 // Lav auto aktivring så modal kommer frem efter 10 seks eller når man er på vej ud af siden. Indsæt på App.js
 
-
 //// Modal design
 // input onTop af billede
 // Billede on left/right
 // billede top, input under billede.
-
 
 //// Read-ups
 // Læs op på one-way databinding og databinding generelt

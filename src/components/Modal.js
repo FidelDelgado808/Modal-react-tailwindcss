@@ -210,22 +210,22 @@ function Modal({
 
 export default Modal;
 
-// To-Do
+
+
+
+
+
+//// To-Do
 // ændre flex-1 flex-2 så det passer og ser godt ud - brug evt if og else sætninger ifelse
 
-// læs op på one-way databinding og databinding generelt
-// Få styr på UseEffect
-// Confetti loader når siden loader. Den skal loade onSubmit og ikke ved load. {midlertidig løsning fundet}
-
-// Alt skal være dynamisk på siden
-
 // Lav auto aktivring så modal kommer frem efter 10 seks eller når man er på vej ud af siden. Indsæt på App.js
-// Jeg kan bruge Coffee og TravelForm som template.
-// Sørg for at være konsistent med padding og margin rundt om siden.
 
-// Fix showParagraph i App.js
 
-// Modal design
+//// Modal design
 // input onTop af billede
 // Billede on left/right
 // billede top, input under billede.
+
+
+//// Read-ups
+// Læs op på one-way databinding og databinding generelt

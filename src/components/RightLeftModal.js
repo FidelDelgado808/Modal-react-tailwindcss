@@ -117,7 +117,7 @@ function App({ closeModal, headingOne, headingTwo, positionStyle, paragraf }) {
 
 				{!showSuccess && (
 					<div div className="flex flex-row w-full">
-						<div className="!w-1/2">
+						<div className="min-w-2/3">
 							<div className="text-4xl py-4 font-bold capitalize">
 								{headingOne}
 							</div>

@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import Modal from './Modal';
 
-
-
 export default function Success({ userData, closeModal }) {
-	
-
 	return (
 		<div className="h-fit items-center flex justify-center relative">
-			<a onClick={()=>closeModal()} className="absolute top-5 right-5 text-xl">
+			<a
+				onClick={() => closeModal()}
+				className="absolute top-5 right-5 text-xl"
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"

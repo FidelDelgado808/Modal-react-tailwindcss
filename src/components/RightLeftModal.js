@@ -3,13 +3,7 @@ import { useForm } from 'react-hook-form';
 import Confetti from 'react-confetti';
 import Success from './Success';
 
-function Modal({
-	closeModal,
-	headingOne,
-	headingTwo,
-	positionStyle,
-	paragraf,
-}) {
+function App({ closeModal, headingOne, headingTwo, positionStyle, paragraf }) {
 	const [showSuccess, setShowSuccess] = useState(false);
 
 	const [userData, setUserData] = useState({
@@ -29,11 +23,20 @@ function Modal({
 		stopConfetti() && handleClick();
 	}, []);
 
+	const [imgPosition, setImgPosition] = useState({
+		center: 'flex-row, rounded-lg',
+		left: 'flex-col, rounded-lg',
+		right: 'rounded-lg',
+		onTop: 'flex-wrap',
+	});
+
 	const [ImageSource, setImageSource] = useState({
 		img1: 'https://tecdn.b-cdn.net/img/new/slides/041.jpg',
 		img2: 'https://media.istockphoto.com/id/960567928/photo/happy-man-drinking-a-cup-of-coffee-at-a-cafe.jpg?s=2048x2048&w=is&k=20&c=bHRrhIWp3Na9GjnNZZk58PbLzJXluXWzlUyNSKdq7tY=',
 		img3: 'https://s2.qwant.com/thumbr/700x0/f/e/ce190e7d24f10478eb6f9d867034934af36688d3f29314fb58baa27ec3339e/Facebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png?u=https%3A%2F%2Fwww.thewaystowealth.com%2Fwp-content%2Fuploads%2F2017%2F03%2FFacebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png&q=0&b=1&p=0&a=0',
-		img4: '',
+		img4: 'https://s2.qwant.com/thumbr/0x380/5/0/09e2ed10b1d5797bb796da4c38262e5a06e9d129cb4c140eeff1c4fff52f59/Vertical-Horizon-104.jpg?u=https%3A%2F%2Fpetapixel.com%2Fassets%2Fuploads%2F2017%2F04%2FVertical-Horizon-104.jpg&q=0&b=1&p=0&a=0',
+		img5: 'https://s2.qwant.com/thumbr/0x380/f/5/a6855801cb0a365c58c7bc81d486b1e595a01a5fd7e1672417a0737b475279/Yylg4B.jpg?u=https%3A%2F%2Fcdn.wallpapersafari.com%2F16%2F10%2FYylg4B.jpg&q=0&b=1&p=0&a=0',
+		img6: '',
 	});
 
 	function handleClick() {
@@ -86,15 +89,7 @@ function Modal({
 		const formDataObject = JSON.parse(savedData);
 		return formDataObject;
 	};
-
 	const localFormData = getLocalStorageFormData();
-
-	const [imgPosition, setImgPosition] = useState({
-		center: 'flex-row, rounded-lg',
-		left: 'flex-col, rounded-lg',
-		right: 'top-11 left-16 rounded-lg',
-		onTop: 'flex-wrap',
-	});
 
 	return (
 		<div
@@ -102,8 +97,8 @@ function Modal({
 			className="absolute inset-0 w-screen h-screen bg-zinc-700/50 flex justify-center items-center"
 			onClick={closeModalBgClick}
 		>
-			<div className="bg-white p-4 m-4 rounded-lg md:w-7/12 w-10/12 max-w-screen-md shadow-2xl relative">
-				<a onClick={closeModal} className="absolute right-5 text-xl">
+			<div className="bg-white rounded-lg md:w-7/12 w-10/12 max-w-screen-md shadow-xl relative">
+				<a onClick={closeModal} className="absolute right-4 top-1 text-xl">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -120,112 +115,79 @@ function Modal({
 					</svg>
 				</a>
 
-				<div
-					className={`flex ${
-						positionStyle === 'center' ? 'flex-col' : 'flex-row'
-					}`}
-				>
-					{!showSuccess && (
-						<div className="  relative right-0">
+				{!showSuccess && (
+					<div div className="flex flex-row w-full">
+						<div className="!w-1/2">
+							<div className="text-4xl py-4 font-bold capitalize">
+								{headingOne}
+							</div>
+							<div className="px-8 text-lg">{paragraf}</div>
+
+							<form onSubmit={handleSubmit(onSubmit)}>
+								<div className="py-2 mb-2">
+									<input
+										defaultValue={localFormData?.navn}
+										className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+										placeholder="Navn"
+										{...register('navn')}
+									/>
+									{/* Inputs */}
+									<div>
+										<input
+											defaultValue={localFormData?.email}
+											className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+											{...register('email', { required: true })}
+											placeholder="E-mail"
+											type="email"
+										/>
+
+										{errors.email && (
+											<span className="py-2 px-4 text-sm">
+												Du mangler at udfylde et felt.
+											</span>
+										)}
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											className="required:border-red-500 mb-2"
+											required
+										/>
+										<span className="text-sm">
+											&nbsp; I want awesome newsletters with occasional
+											discounts
+										</span>
+									</div>
+
+									{/* Button */}
+									<input
+										className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
+									focus:outline-none focus:shadow-outline"
+										type="submit"
+										autoComplete="on"
+										value={'Submit'}
+									/>
+								</div>
+							</form>
+						</div>
+
+						<div className="h-full w-full max-w-1/3">
 							<img
-								src={`${ImageSource.img2}`}
+								src={ImageSource.img5}
 								className={imgPosition[positionStyle]}
 								alt="img"
 							/>
 						</div>
-					)}
-
-					<div className="text-4xl"></div>
-
-					{!showSuccess && (
-						<div className="flex-1 text-4xl py-2 font-bold capitalize">
-							{headingOne}
-						</div>
-					)}
-					{!showSuccess && (
-						<div className="bg-blue-500 w-6/12 h-1 mx-auto rounded-lg"></div>
-					)}
-
-					{!showSuccess && (
-						<div className="flex-2 text-xl py-2">{headingTwo}</div>
-					)}
-					{!showSuccess && (
-						<div className="flex-2 text-lg py-2">{paragraf}</div>
-					)}
-				</div>
-
-				{!showSuccess && (
-					<>
-						<form onSubmit={handleSubmit(onSubmit)}>
-							<div className="py-2 mb-2">
-								<input
-									defaultValue={localFormData?.navn}
-									className="flex-3 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
-									placeholder="Navn"
-									{...register('navn')}
-								/>
-								{/* Inputs */}
-								<div>
-									<input
-										defaultValue={localFormData?.email}
-										className="flex-4 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
-										{...register('email', { required: true })}
-										placeholder="E-mail"
-										type="email"
-									/>
-
-									{errors.email && (
-										<span className="flex-5 py-2 px-4 justify-center">
-											Du mangler at udfylde et felt.
-										</span>
-									)}
-								</div>
-								<div>
-									<input
-										type="checkbox"
-										className="required:border-red-500 mb-2"
-										required
-									/>
-									<span className="text-sm">
-										&nbsp; I want awesome to receive newsletters with occasional
-										discounts
-									</span>
-								</div>
-
-								{/* Button */}
-								<input
-									className="flex-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
-									focus:outline-none focus:shadow-outline"
-									type="submit"
-									autoComplete="on"
-									value={'Submit'}
-								/>
-							</div>
-						</form>
-					</>
+					</div>
 				)}
 
 				{showSuccess && userData && (
 					<Success userData={userData} closeModal={closeModal} />
 				)}
 			</div>
-
 			{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.7} />}
 		</div>
 	);
 }
 
-export default Modal;
-
-//// To-Do
-// ændre flex-1 flex-2 så det passer og ser godt ud - brug evt if og else sætninger ifelse
-
-// Lav auto aktivring så modal kommer frem efter 10 seks eller når man er på vej ud af siden. Indsæt på App.js
-
-//// Modal design
-// input onTop af billede
-// Billede on left/right
-// billede top, input under billede.
-
-//// Read-ups
-// Læs op på one-way databinding og databinding generelt
+export default App;

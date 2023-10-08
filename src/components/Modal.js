@@ -126,7 +126,7 @@ function Modal({
 					}`}
 				>
 					{!showSuccess && (
-						<div className="  relative right-0">
+						<div className="relative right-0">
 							<img
 								src={`${ImageSource.img2}`}
 								className={imgPosition[positionStyle]}

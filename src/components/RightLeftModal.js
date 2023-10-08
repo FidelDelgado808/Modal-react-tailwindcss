@@ -116,7 +116,7 @@ function App({ closeModal, headingOne, headingTwo, positionStyle, paragraf }) {
 				</a>
 
 				{!showSuccess && (
-					<div div className="flex flex-row w-full">
+					<div div className="flex flex-col-reverse w-full">
 						<div className="min-w-2/3">
 							<div className="text-4xl py-4 font-bold capitalize">
 								{headingOne}
@@ -185,7 +185,7 @@ function App({ closeModal, headingOne, headingTwo, positionStyle, paragraf }) {
 					<Success userData={userData} closeModal={closeModal} />
 				)}
 			</div>
-			{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.7} />}
+			{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.2} />}
 		</div>
 	);
 }

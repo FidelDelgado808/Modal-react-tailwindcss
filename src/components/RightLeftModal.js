@@ -23,13 +23,6 @@ function App({ closeModal, headingOne, headingTwo, positionStyle, paragraf }) {
 		stopConfetti() && handleClick();
 	}, []);
 
-	const [imgPosition, setImgPosition] = useState({
-		center: 'flex-row, rounded-lg',
-		left: 'flex-col, rounded-lg',
-		right: 'rounded-lg',
-		onTop: 'flex-wrap',
-	});
-
 	const [ImageSource, setImageSource] = useState({
 		img1: 'https://tecdn.b-cdn.net/img/new/slides/041.jpg',
 		img2: 'https://media.istockphoto.com/id/960567928/photo/happy-man-drinking-a-cup-of-coffee-at-a-cafe.jpg?s=2048x2048&w=is&k=20&c=bHRrhIWp3Na9GjnNZZk58PbLzJXluXWzlUyNSKdq7tY=',
@@ -91,6 +84,11 @@ function App({ closeModal, headingOne, headingTwo, positionStyle, paragraf }) {
 	};
 	const localFormData = getLocalStorageFormData();
 
+	const [imgPosition, setImgPosition] = useState({
+		center: 'flex-row, rounded-lg',
+		left: 'flex-col-reverse w-full, rounded-lg',
+		right: 'flex-col-reverse w-full, rounded-lg',
+	});
 	return (
 		<div
 			id="modal-bg"
@@ -116,7 +114,11 @@ function App({ closeModal, headingOne, headingTwo, positionStyle, paragraf }) {
 				</a>
 
 				{!showSuccess && (
-					<div div className="flex flex-col-reverse w-full">
+					<div
+						className={`flex ${
+							positionStyle === 'right' ? 'flex-row' : 'flex-col-reverse'
+						}`}
+					>
 						<div className="min-w-2/3">
 							<div className="text-4xl py-4 font-bold capitalize">
 								{headingOne}

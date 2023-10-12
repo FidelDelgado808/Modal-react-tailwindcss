@@ -84,7 +84,7 @@ function App({ closeModal, headingOne, headingTwo, positionStyle, paragraf }) {
 	};
 	const localFormData = getLocalStorageFormData();
 
-	const [imgPosition, setImgPosition] = useState({
+	const [imgPosition] = useState({
 		center: 'flex-row, rounded-lg',
 		left: 'flex-col-reverse w-full, rounded-lg',
 		right: 'flex-col-reverse w-full, rounded-lg',

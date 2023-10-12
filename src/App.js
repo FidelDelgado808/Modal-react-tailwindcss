@@ -31,7 +31,7 @@ function App() {
 					closeModal={closeModal}
 					headingOne="Get 60% off"
 					headingTwo="Get an exclusive discount today"
-					positionStyle={'right'}
+					positionStyle={'left'}
 					paragraf={
 						'What are you waiting for? We only do this once during a blood moon. More or less. With this 60% off you could buy something nice for that next dateyou got. Or you could simply not. So please do enjoy yourself with your 60% off!'
 					}
@@ -42,6 +42,6 @@ function App() {
 }
 export default App;
 
-
+// mangler at få left til at passe
 // RightLeftModal kan også være Modal med billede i center ved at skrive flex-col-reverse.
 // Den modal hvor text, input etc er ovenpå billedet er sin egen komponent.

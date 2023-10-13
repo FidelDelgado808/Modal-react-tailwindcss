@@ -14,16 +14,26 @@ function App() {
 		setShowModal(false);
 	}
 
+function onMouseLeave(e) {
+setShowModal(true);
+	
+console.log(e);
+
+}
+	
 	return (
 		<div className="App w-screen h-screen bg-zinc-300 flex flex-col justify-center items-center">
-			<div className="container w-9/12 bg-white px-4 py-10 m-5 rounded-lg">
+			<div
+				onMouseLeave={onMouseLeave}
+				className="container w-9/12 bg-white px-4 py-10 m-5 rounded-lg"
+			>
 				<div className="text-3xl my-4 capitalize md:uppercase">
 					Get 60 % off
 				</div>
 
-				<div className="text-gray-600 px-6 mb-4">Save money!</div>
+				<div className="text-gray-600 px-6 mb-4">Save money! </div>
 
-				<Button handleClick={openModal} text="Yes, I want 10% Off" />
+				<Button onMouseLeave={onMouseLeave} handleClick={openModal} text="Yes, I want 10% Off" />
 			</div>
 
 			{showModal && (

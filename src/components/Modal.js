@@ -90,11 +90,14 @@ function Modal({
 	const localFormData = getLocalStorageFormData();
 
 	const [imgPosition, setImgPosition] = useState({
-		center: 'flex-row, rounded-lg',
-		left: 'flex-col, rounded-lg',
-		right: 'top-11 left-16 rounded-lg',
-		onTop: 'flex-wrap',
+		onTop: '',
 	});
+
+	const myCoolStyle = {
+		backgroundSize: 'container',
+		backgroundRepeat: 'no-repeat',
+		zIndex: '2',
+	};
 
 	return (
 		<div
@@ -120,47 +123,13 @@ function Modal({
 					</svg>
 				</a>
 
-				<div
-					className={`flex ${
-						positionStyle === 'center' ? 'flex-col' : 'flex-row'
-					}`}
-				>
-					{!showSuccess && (
-						<div className="relative right-0">
-							<img
-								src={`${ImageSource.img2}`}
-								className={imgPosition[positionStyle]}
-								alt="img"
-							/>
-						</div>
-					)}
-
-					<div className="text-4xl"></div>
-
-					{!showSuccess && (
-						<div className="flex-1 text-4xl py-2 font-bold capitalize">
-							{headingOne}
-						</div>
-					)}
-					{!showSuccess && (
-						<div className="bg-blue-500 w-6/12 h-1 mx-auto rounded-lg"></div>
-					)}
-
-					{!showSuccess && (
-						<div className="flex-2 text-xl py-2">{headingTwo}</div>
-					)}
-					{!showSuccess && (
-						<div className="flex-2 text-lg py-2">{paragraf}</div>
-					)}
-				</div>
-
 				{!showSuccess && (
 					<>
 						<form onSubmit={handleSubmit(onSubmit)}>
 							<div className="py-2 mb-2">
 								<input
 									defaultValue={localFormData?.navn}
-									className="flex-3 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+									className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
 									placeholder="Navn"
 									{...register('navn')}
 								/>
@@ -168,14 +137,14 @@ function Modal({
 								<div>
 									<input
 										defaultValue={localFormData?.email}
-										className="flex-4 border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+										className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
 										{...register('email', { required: true })}
 										placeholder="E-mail"
 										type="email"
 									/>
 
 									{errors.email && (
-										<span className="flex-5 py-2 px-4 justify-center">
+										<span className=" py-2 px-4 justify-center">
 											Du mangler at udfylde et felt.
 										</span>
 									)}
@@ -194,7 +163,7 @@ function Modal({
 
 								{/* Button */}
 								<input
-									className="flex-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
+									className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
 									focus:outline-none focus:shadow-outline"
 									type="submit"
 									autoComplete="on"
@@ -204,28 +173,22 @@ function Modal({
 						</form>
 					</>
 				)}
-
+				{!showSuccess && (
+					<div>
+						<img
+							src={`${ImageSource.img3}`}
+							className={imgPosition[positionStyle]}
+							alt="img"
+						/>
+					</div>
+				)}
 				{showSuccess && userData && (
 					<Success userData={userData} closeModal={closeModal} />
 				)}
+				{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.7} />}
 			</div>
-
-			{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.7} />}
 		</div>
 	);
 }
 
 export default Modal;
-
-//// To-Do
-// ændre flex-1 flex-2 så det passer og ser godt ud - brug evt if og else sætninger ifelse
-
-// Lav auto aktivring så modal kommer frem efter 10 seks eller når man er på vej ud af siden. Indsæt på App.js
-
-//// Modal design
-// input onTop af billede
-// Billede on left/right
-// billede top, input under billede.
-
-//// Read-ups
-// Læs op på one-way databinding og databinding generelt

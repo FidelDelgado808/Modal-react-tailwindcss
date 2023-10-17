@@ -179,7 +179,7 @@ function App({ closeModal, headingOne, headingTwo, positionStyle, paragraf }) {
 
 						<div className="h-full w-full max-w-1/4">
 							<img
-								src={ImageSource.img5}
+								src={ImageSource.img2}
 								className={imgPosition[positionStyle]}
 								alt="img"
 							/>

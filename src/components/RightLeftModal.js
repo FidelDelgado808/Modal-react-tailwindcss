@@ -98,7 +98,11 @@ function App({ closeModal, headingOne, headingTwo, positionStyle, paragraf }) {
 			onClick={closeModalBgClick}
 		>
 			<div className="bg-white rounded-lg md:w-7/12 w-10/12 max-w-screen-md shadow-xl relative">
-				<a onClick={closeModal} className="absolute right-4 top-1 text-xl">
+				<a
+					href="#"
+					onClick={closeModal}
+					className="absolute right-4 top-1 text-xl"
+				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"

@@ -99,38 +99,13 @@ function Modal({
 			<div className="bg-white p-2 rounded-lg md:w-7/12 w-10/12 max-w-screen-md shadow-xl relative">
 				{!showSuccess && (
 					<div className="container">
-						<img
-							alt="img"
-							src="https://s1.qwant.com/thumbr/0x380/3/3/9e6d735367a604fd6df9add17fb81935e798b261050f8ff5270f1a33c6aa35/4e4e26cae6106d9c7dd6333083599553.png?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F4e%2F4e%2F26%2F4e4e26cae6106d9c7dd6333083599553.png&q=0&b=1&p=0&a=0"
-						></img>
+						<img alt="img" src={ImageSource.img4}></img>
 					</div>
 				)}
-				<div>
-					<a
-						href="/"
-						onClick={closeModal}
-						className="absolute relativ top-19 bottom-0 left-5"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							strokeWidth={1.7}
-							stroke="currentColor"
-							className="w-8 h-8 hover:cursor-pointer"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								d="M6 18L18 6M6 6l12 12"
-							/>
-						</svg>
-					</a>
-				</div>
 
 				{!showSuccess && (
 					<div className="absolute inset-0 py-4">
-						<div className="text-6xl font-semibold text-slate-50">
+						<div className="lg:text-6xl sm:text-4xl font-semibold text-slate-50">
 							{headingOne}
 						</div>
 
@@ -154,7 +129,7 @@ function Modal({
 									/>
 
 									{errors.email && (
-										<span className=" py-2 px-4 w-1/2 text-slate-100">
+										<span className="flex justify-center py-2 px-4 text-slate-100">
 											Du mangler at udfylde et felt.
 										</span>
 									)}
@@ -166,8 +141,7 @@ function Modal({
 										required
 									/>
 									<span className="text-sm text-slate-100">
-										&nbsp; I want awesome to receive newsletters with occasional
-										discounts
+										&nbsp; Subscribe
 									</span>
 								</div>
 

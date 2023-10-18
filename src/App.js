@@ -37,11 +37,11 @@ console.log(e);
 			</div>
 
 			{showModal && (
-				<Modal
+				<RightLeftModal
 					closeModal={closeModal}
 					headingOne="Get 60% off"
 					headingTwo="Get an exclusive discount today"
-					positionStyle={'onTop'}
+					positionStyle={'center'}
 					paragraf={
 						'What are you waiting for? We only do this once during a blood moon. More or less. With this 60% off you could buy something nice for that next dateyou got. Or you could simply not. So please do enjoy yourself with your 60% off!'
 					}

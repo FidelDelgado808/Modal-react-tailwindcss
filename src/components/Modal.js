@@ -187,7 +187,7 @@ function Modal({
 				{showSuccess && userData && (
 					<Success userData={userData} closeModal={closeModal} />
 				)}
-				{showSuccess && <Confetti numberOfPieces={pieces} gravity={0.7} />}
+				{showSuccess && <Confetti numberOfPieces={pieces} gravity={1.7} />}
 			</div>
 		</div>
 	);

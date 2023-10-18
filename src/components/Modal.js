@@ -33,7 +33,8 @@ function Modal({
 		img1: 'https://tecdn.b-cdn.net/img/new/slides/041.jpg',
 		img2: 'https://media.istockphoto.com/id/960567928/photo/happy-man-drinking-a-cup-of-coffee-at-a-cafe.jpg?s=2048x2048&w=is&k=20&c=bHRrhIWp3Na9GjnNZZk58PbLzJXluXWzlUyNSKdq7tY=',
 		img3: 'https://s2.qwant.com/thumbr/700x0/f/e/ce190e7d24f10478eb6f9d867034934af36688d3f29314fb58baa27ec3339e/Facebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png?u=https%3A%2F%2Fwww.thewaystowealth.com%2Fwp-content%2Fuploads%2F2017%2F03%2FFacebook_-How-To-Save-Money_-100-Tips-To-Save-Money-Fast.png&q=0&b=1&p=0&a=0',
-		img4: '',
+		img4: 'https://media.istockphoto.com/id/486849516/photo/out-of-office.webp?s=2048x2048&w=is&k=20&c=BxrcB14M3x8iV9x3G86q7ssyFdAN4vVSxii6I4_1RRo=',
+		img5: 'https://s1.qwant.com/thumbr/0x380/3/3/9e6d735367a604fd6df9add17fb81935e798b261050f8ff5270f1a33c6aa35/4e4e26cae6106d9c7dd6333083599553.png?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F4e%2F4e%2F26%2F4e4e26cae6106d9c7dd6333083599553.png&q=0&b=1&p=0&a=0',
 	});
 
 	function handleClick() {
@@ -89,62 +90,71 @@ function Modal({
 
 	const localFormData = getLocalStorageFormData();
 
-	const [imgPosition, setImgPosition] = useState({
-		onTop: '',
-	});
-
-	const myCoolStyle = {
-		backgroundSize: 'container',
-		backgroundRepeat: 'no-repeat',
-		zIndex: '2',
-	};
-
 	return (
 		<div
 			id="modal-bg"
-			className="absolute inset-0 w-screen h-screen bg-zinc-700/50 flex justify-center items-center"
+			className="bg-zinc-700/50 absolute inset-0 w-screen h-screen flex justify-center items-center"
 			onClick={closeModalBgClick}
 		>
-			<div className="bg-white p-4 m-4 rounded-lg md:w-7/12 w-10/12 max-w-screen-md shadow-2xl relative">
-				<a onClick={closeModal} className="absolute right-5 text-xl">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						strokeWidth={1.5}
-						stroke="currentColor"
-						className="w-6 h-6 hover:cursor-pointer"
+			<div className="bg-white p-2 rounded-lg md:w-7/12 w-10/12 max-w-screen-md shadow-xl relative">
+				{!showSuccess && (
+					<div className="container">
+						<img
+							alt="img"
+							src="https://s1.qwant.com/thumbr/0x380/3/3/9e6d735367a604fd6df9add17fb81935e798b261050f8ff5270f1a33c6aa35/4e4e26cae6106d9c7dd6333083599553.png?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F4e%2F4e%2F26%2F4e4e26cae6106d9c7dd6333083599553.png&q=0&b=1&p=0&a=0"
+						></img>
+					</div>
+				)}
+				<div>
+					<a
+						href="/"
+						onClick={closeModal}
+						className="absolute relativ top-19 bottom-0 left-5"
 					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							d="M6 18L18 6M6 6l12 12"
-						/>
-					</svg>
-				</a>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							strokeWidth={1.7}
+							stroke="currentColor"
+							className="w-8 h-8 hover:cursor-pointer"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								d="M6 18L18 6M6 6l12 12"
+							/>
+						</svg>
+					</a>
+				</div>
 
 				{!showSuccess && (
-					<>
+					<div className="absolute inset-0 py-4">
+						<div className="text-6xl font-semibold text-slate-50">
+							{headingOne}
+						</div>
+
 						<form onSubmit={handleSubmit(onSubmit)}>
+							{/* Inputs */}
 							<div className="py-2 mb-2">
 								<input
 									defaultValue={localFormData?.navn}
-									className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+									className="border rounded w-1/2 py-2 px-3 my-2 text-gray-700 leading-tight"
 									placeholder="Navn"
 									{...register('navn')}
 								/>
-								{/* Inputs */}
+
 								<div>
 									<input
 										defaultValue={localFormData?.email}
-										className="border rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight"
+										className="border rounded w-1/2 py-2 px-3 my-2 text-gray-700 leading-tight"
 										{...register('email', { required: true })}
 										placeholder="E-mail"
 										type="email"
 									/>
 
 									{errors.email && (
-										<span className=" py-2 px-4 justify-center">
+										<span className=" py-2 px-4 w-1/2 text-slate-100">
 											Du mangler at udfylde et felt.
 										</span>
 									)}
@@ -155,7 +165,7 @@ function Modal({
 										className="required:border-red-500 mb-2"
 										required
 									/>
-									<span className="text-sm">
+									<span className="text-sm text-slate-100">
 										&nbsp; I want awesome to receive newsletters with occasional
 										discounts
 									</span>
@@ -163,7 +173,7 @@ function Modal({
 
 								{/* Button */}
 								<input
-									className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
+									className=" bg-blue-400 hover:bg-blue-800 text-slate-100 hover:text-slate-200 font-bold py-2 px-4 rounded 
 									focus:outline-none focus:shadow-outline"
 									type="submit"
 									autoComplete="on"
@@ -171,17 +181,9 @@ function Modal({
 								/>
 							</div>
 						</form>
-					</>
-				)}
-				{!showSuccess && (
-					<div>
-						<img
-							src={`${ImageSource.img3}`}
-							className={imgPosition[positionStyle]}
-							alt="img"
-						/>
 					</div>
 				)}
+
 				{showSuccess && userData && (
 					<Success userData={userData} closeModal={closeModal} />
 				)}
@@ -192,3 +194,4 @@ function Modal({
 }
 
 export default Modal;
+// error.email kommer forkert frem

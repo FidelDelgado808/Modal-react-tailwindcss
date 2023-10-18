@@ -53,3 +53,6 @@ console.log(e);
 export default App;
 
 // efter modal virker så tjek for responsive og cross-browser 
+// 1. Identificer dit problem
+// 2. Gennemgå skridt for skridt i din kode det du gør i koden
+// 3. log undervejs hvis du er i tvivl om ting bliver løst som du regner dem
